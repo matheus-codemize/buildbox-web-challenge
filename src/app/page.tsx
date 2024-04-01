@@ -12,6 +12,7 @@ import Textarea from "@components/Textarea";
 import Button from "@components/Button";
 import Card from "@components/Card";
 import List from "@components/List";
+import { Body, Feed, Form, FormGroup, Header, Main } from "./styles";
 
 export default function Home() {
   const [posting, setPosting] = useState<boolean>(false);
@@ -74,61 +75,13 @@ export default function Home() {
   }
 
   return (
-    <main
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        overflow: "hidden",
-        flexDirection: "column",
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <div
-        style={{
-          width: "100vw",
-          display: "flex",
-          padding: "1.5rem",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: theme.colors.header,
-        }}
-      >
+    <Main>
+      <Header>
         <Image priority alt="logo" width={103} height={45} src="/bx-logo.png" />
-      </div>
-      <div
-        style={{
-          gap: 56,
-          flex: 1,
-          width: "100%",
-          maxWidth: 516,
-          display: "flex",
-          margin: "0 auto",
-          overflowY: "auto",
-          padding: "41px 16px 0",
-          flexDirection: "column",
-        }}
-      >
-        <form
-          onSubmit={onSubmit}
-          style={{
-            gap: 32,
-            padding: 24,
-            display: "flex",
-            borderRadius: 3,
-            flexDirection: "column",
-            border: `1px solid ${theme.colors.black}`,
-            backgroundColor: theme.colors.black_two,
-          }}
-        >
-          <div
-            style={{
-              gap: 16,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+      </Header>
+      <Body>
+        <Form onSubmit={onSubmit}>
+          <div>
             <Avatar
               size={88}
               radius={36}
@@ -136,14 +89,7 @@ export default function Home() {
               src={data.photo}
               onSelectFile={(value) => onChange("photo", value)}
             />
-            <div
-              style={{
-                gap: 8,
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
+            <FormGroup>
               <Input
                 value={data.name}
                 disabled={posting}
@@ -157,16 +103,9 @@ export default function Home() {
                 placeholder="Mensagem"
                 onChange={(value) => onChange("message", value)}
               />
-            </div>
+            </FormGroup>
           </div>
-          <div
-            style={{
-              gap: 24,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-            }}
-          >
+          <div>
             <Button
               variant="ghost"
               onClick={onDiscard}
@@ -178,14 +117,8 @@ export default function Home() {
               Publicar
             </Button>
           </div>
-        </form>
-        <div
-          style={{
-            gap: 8,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        </Form>
+        <Feed>
           <Text size="sm" weight="medium" color="warm_grey">
             Feed
           </Text>
@@ -202,8 +135,8 @@ export default function Home() {
                 />
               ))}
           </List>
-        </div>
-      </div>
-    </main>
+        </Feed>
+      </Body>
+    </Main>
   );
 }

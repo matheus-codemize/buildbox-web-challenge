@@ -2,12 +2,24 @@
 
 Esta é uma aplicação simples desenvolvida com Next.js, React, Styled Components e Redux. A aplicação inclui um tema dark e utiliza localStorage para persistência dos dados.
 
+# Acesso à Aplicação
+
+Você pode acessar a aplicação online [aqui]()
+
+## Instale as dependências
+
+cd buildbox-web-challenge
+npm install
+
+## Execute a aplicação
+npm run build
+npm run start
+
 ## Funcionalidades
 
 - Exibição de uma lista de itens.
 - Adição de novos itens.
 - Remoção de itens existentes.
-- Alternância entre o tema light e dark.
 
 ## Tecnologias Utilizadas
 
@@ -20,18 +32,11 @@ Esta é uma aplicação simples desenvolvida com Next.js, React, Styled Componen
 
 - `app/`: Contém as páginas da aplicação.
 - `components/`: Componentes reutilizáveis.
+- `lib/`: Configurações e definições do Redux.
 - `styles/`: Estilos globais e temas da aplicação.
-- `redux/`: Configurações e definições do Redux.
-- `utils/`: Utilitários diversos.
+- `storage/`: Funções relacionadas à persistência de dados, como leitura e escrita no localStorage.
+- `providers/`: Configurações dos provedores utilizados na aplicação, como o provedor de tema (Styled Components) e o provedor de store (Redux).
 
 ## Persistência de Dados
 
 A aplicação utiliza o `localStorage` para armazenar os dados localmente no navegador do usuário. Isso permite que os dados persistam mesmo após o fechamento do navegador.
-
-## Tema Dark
-
-A aplicação possui suporte para um tema dark, que pode ser ativado através de um botão ou uma opção de configuração. A mudança de tema é feita dinamicamente utilizando Styled Components.
-
-## Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request com melhorias, correções de bugs ou novas funcionalidades.
